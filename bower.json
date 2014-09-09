@@ -1,0 +1,17 @@
+{
+  "name": "ngProductListing",
+  "version": "0.0.0",
+  "homepage": "https://github.com/lapty/FirstDayHomework",
+  "authors": [
+    "lapty <charles.qh.nguyen@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ]
+}

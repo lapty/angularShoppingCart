@@ -1,0 +1,11 @@
+<form action="" ng-submit="addProd(newProd)">
+    <h3>Product Name: <input type="text" ng-model="newProd.title" value="newProd.title"</h3>
+    <h3>Image URL: <input type="text" ng-model="newProd.image" value="newProd.image"></h3>
+    <h3> Price: <input type="text" ng-model="newProd.price" value="newProd.price"> </h3>
+    <p><textarea name="ProdContent" id="" cols="30" rows="10" ng-model="newProd.content">
+        {{newProd.content}}
+    </textarea></p>
+
+
+    <button type="submit">Add Product</button>
+</form>
