@@ -30,7 +30,7 @@ angular.module("httpService")
 
         var deleteItem = function (id) {
             return $http.delete(urlBase + "/" + id).then(function (response) {
-                console.log(response)
+                console.log(response);
                 $rootScope.$broadcast("item:deleted");
                 $log.info("item:deleted");
             });
@@ -43,6 +43,7 @@ angular.module("httpService")
         };
 
 
+
         return {
             getItems: getItems,
             getItem: getItem,
@@ -50,6 +51,7 @@ angular.module("httpService")
             addToCart: addToCart,
             deleteItem: deleteItem,
             updateItem: updateItem,
+
 
         };
 

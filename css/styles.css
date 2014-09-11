@@ -4,25 +4,34 @@ body {
   font-family: helvetica;
   background-image: url("../images/bg.png"); }
 
+body::selection {
+  background: red; }
+
 p {
   margin: 5px; }
 
 nav {
-  position: absolute;
+  position: relative;
   width: 100%;
-  top: 5px;
-  font-size: 3em;
+  top: 30px;
+  font-size: 3.5em;
   text-align: center;
   font-family: 'Fascinate Inline', cursive;
   font-weight: lighter;
   background-color: rgba(0, 0, 0, 0.001); }
   nav a {
-    color: black; }
+    text-decoration: none;
+    color: black;
+    transition: all 0.5s ease; }
+  nav .fa:hover {
+    opacity: 0.5; }
+  nav a:hover {
+    color: red; }
 
 .container {
   position: relative;
   top: 0px;
-  margin: 13%;
+  margin: 10%;
   background-color: white;
   border: 5px black double;
   box-shadow: -19px 21px 0px 0px black; }
@@ -63,7 +72,12 @@ nav {
     margin-left: 15px; }
 
 .itemWrap:hover {
-  box-shadow: 6px 5px 0px 7px black; }
+  box-shadow: 6px 5px 0px 7px red; }
 
 .admin {
   background-color: rgba(200, 200, 200, 0.5); }
+
+.reviews {
+  border: 1px black solid;
+  margin: 10px;
+  padding: 5px; }

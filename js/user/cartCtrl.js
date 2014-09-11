@@ -1,8 +1,13 @@
 angular.module("userService")
     .controller("cartCtrl", function ($scope, $rootScope, $location, $routeParams, cartSvc) {
 
-       cartSvc.getCarts().then(function (carts) {
+        $scope.cartTotal = 0;
+
+        cartSvc.getCarts().then(function (carts) {
            $scope.carts = carts.data;
+                for (var i = 0; i < carts.data.length; i++) {
+                    $scope.checkoutTotal += (carts.data[i].price * carts.data[i].quantity);
+           };
 
         });
 
@@ -25,15 +30,17 @@ angular.module("userService")
         };
 
         $scope.deleteCart = function (id) {
-            cartSvc.deleteCart(id).then(function () {
-                $location.path("/store/cart");
-            });
+            cartSvc.deleteCart(id),
+            cartSvc.$log("cart:deleted");
+            cartSvc.$broadcast("cart:deleted")
         };
 
-        $rootScope.$on("item:deleted",  function() {
-        cartSvc.getCarts().then(function (carts) {
-          $scope.carts = carts.data;
+        $rootScope.$on("cart:deleted",  function() {
+            cartSvc.getCarts().then(function (carts) {
+            $scope.carts = carts.data;
         });
       });
+
+      $scope.cartTotal = cartSvc.cartTotal();
 
     });

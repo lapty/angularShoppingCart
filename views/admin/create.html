@@ -2,7 +2,7 @@
 <form action="" ng-submit="addItem(newItem)">
     <h3>Title<input type="text" ng-model="newItem.title"/></h3>
     <h3>Image<input type="text" ng-model="newItem.image"/></h3>
-    <h3>Price<input type="text" ng-model="newItem.price"/></h3>
+    <h3>Price<input type="Number" ng-model="newItem.price"/></h3>
     <p>Description<textarea name="itemContent" id="" cols="30" rows="10" ng-model="newItem.content"></textarea></p>
 
     <button type="submit">Add New Item</button>

@@ -7,18 +7,20 @@
     <p>{{singleItem.content}}</p>
     <button ng-click="addToCart();">Add to Cart</button>
 
-Add a review:
+<p><a href="" ng-click="hey=!hey">ADD REVIEW</a></p>
 
-    <form ng-submit="addReview(review)">
-      <h3><input type="text" placeholder="Name" ng-model="review.author"></h3>
-      <p><textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Review" ng-model="review.content"></textarea></p>
-      <button ng-click="rate = !rate">Submit Review</button>
+    <form action="" ng-show="hey" ng-submit=addReview(review)>
+      <p><input type="text" placeholder="Name" ng-model="review.name"></p>
+      <p><textarea name="" id="" cols="30" rows="10" ng-model="review.content" placeholder="Your review"></textarea></p>
+      <p><button ng-click="hey=!hey">SUBMIT</button></p>
     </form>
 
-    <div ng-repeat="review in singleItem.reviews">
-      <p>Review: {{review.reviewContent}}</p>
-      <p>Reviewed By: {{review.reviewAuthor}}</p>
-      <p>Reviewed On: {{review.reviewDate | date : format : timezone}}</p>
+    <div class="reviews" ng-show="singleItem.reviews.length">
+      <section ng-repeat="review in singleItem.reviews">
+        <h3>{{review.name}}</h3>
+        <p>{{review.date | date: "medium"}}</p>
+        <p>{{review.content}}</p>
+      </section>
     </div>
 
 </article>

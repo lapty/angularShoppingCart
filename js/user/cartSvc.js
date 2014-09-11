@@ -13,18 +13,28 @@ angular.module("userService")
             return $http.get(urlCart + "/" + id);
         }
 
-
         var deleteCart = function (id) {
-            $http.delete(urlCart + "/" + id).then(function (response) {
+            $http.delete(urlCart + "/" + id).success(function (response) {
                 $rootScope.$broadcast("cart:deleted");
                 $log.info("cart:deleted");
             });
         };
 
+        var cartTotal = function(){
+          getCarts().success(function(carts){
+            var total = 0;
+            for (var i = 0; i < carts.length; i++) {
+              total += (carts[i].price * carts[i].quantity)
+            }
+            console.log(total);
+            return total;
+          });
+        };
         return {
             getCarts: getCarts,
             getCart: getCart,
             deleteCart: deleteCart,
+            cartTotal: cartTotal,
 
         };
 

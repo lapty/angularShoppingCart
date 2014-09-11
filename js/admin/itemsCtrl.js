@@ -17,25 +17,12 @@ angular.module("httpService")
                 image:item.image,
                 price:item.price,
                 content:item.content,
+                quantity:1,
                 reviews: []
               }).then(function () {
                 $location.path("/admin");
               });
             };
-
-        $scope.addReview = function(review) {
-
-            itemsSvc.getItem($routeParams.id).success(function(item) {
-
-            $scope.reviews.push({
-
-              reviewAuthor:review.author,
-              reviewContent:review.content,
-              reviewDate:new Date(),
-
-                });
-            });
-        };
 
 
         $scope.editItem = function (item) {
@@ -49,6 +36,30 @@ angular.module("httpService")
                 $location.path("/admin");
             });
         };
+
+        $rootScope.$on("item:deleted",  function() {
+        itemsSvc.getItems().then(function (items) {
+          $scope.items = items.data;
+        });
+      });
+
+        $scope.addReview = function(review){
+            itemsSvc.getItem($routeParams.id).success(function(item) {
+            $scope.singleItem = item;
+            $scope.singleItem.reviews.push({
+
+                name: review.name,
+                date: new Date(),
+                content: review.content
+        });
+
+        itemsSvc.updateItem($scope.singleItem);
+
+      });
+
+      $scope.review = {};
+    };
+
 
 
         $scope.addToCart = function (item) {
@@ -64,7 +75,5 @@ angular.module("httpService")
                 $location.path("/store");
             });
         };
-
-
 
 });
