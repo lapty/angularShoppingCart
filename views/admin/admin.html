@@ -1,0 +1,16 @@
+<div class="viewWrap admin">
+<h2>Admin</h2>
+<p><a href="#/httpSvc/new">New item</a></p>
+<a href="#/store">Go to store.</a>
+<article ng-repeat="item in items">
+    <div class="itemWrap">
+    <h3>{{item.title}}</h3>
+    <p><img ng-src="{{item.image}}" width="225" height="200"></p>
+    <p>{{item.price | currency}}</p>
+    <p>{{item.content}}</p>
+    <a href="#/store/{{item._id}}/edit">Edit</a> | <a href="" ng-click="deleteItem(item._id)">Delete</a></p>
+</div>
+</article>
+
+
+</div>

@@ -1,7 +1,9 @@
-angular.module("climbOn",
+angular.module("lapty",
     [
-    "localService",
+    "userService",
+    "httpService",
     "ngRoute",
+    "directives",
     ])
 
 .config(function ($routeProvider) {
@@ -11,7 +13,7 @@ angular.module("climbOn",
             templateUrl: "views/main.html",
             controller: "homeCtrl"
         })
-        // .otherwise({
-        //     redirectTo: "/"
-        // });
+        .otherwise({
+            redirectTo: "/"
+        });
 });

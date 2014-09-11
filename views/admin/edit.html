@@ -1,0 +1,10 @@
+<h2>Edit Item</h2>
+<form action="" ng-submit="editItem(singleItem)">
+    <h3>title<input type="text" ng-model="singleItem.title" value="singleItem.title"/></h3>
+    <h3>image url<input type="text" ng-model="singleItem.image" value="singleItem.image"/></h3>
+    <h3>price <input type="text" ng-model="singleItem.price" value="singleItem.price"/></h3>
+    <p>description <textarea name="itemContent" id="" cols="30" rows="10" ng-model="singleItem.content">
+        {{singleItem.content}}
+    </textarea></p>
+    <button type="submit">Update Item</button>
+</form>

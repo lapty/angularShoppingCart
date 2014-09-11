@@ -1,0 +1,13 @@
+<a href="#/store">>>Back to store.</a>
+
+<article>
+    <h2>{{singleItem.title}}</h2>
+    <p><img ng-src="{{singleItem.image}}"</p>
+    <p>{{singleItem.price | currency}}</p>
+    <p>{{singleItem.content}}</p>
+    <button ng-click="addToCart();">Add to Cart</button>
+</article>
+
+    <h2> Reviews: </h2>
+    <button ng-click"addReview();">Add a review</button>
+    <p></p>

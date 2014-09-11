@@ -1,0 +1,13 @@
+<div class="viewWrap">
+<h2>Items</h2>
+    <div ng-repeat="item in items">
+        <div class="itemWrap">
+
+        <inventory title="{{item.title}}" image="{{item.image}}" content="{{item.content}}" price="{{item.price}}">
+        </inventory>
+
+        <a href="#/store/{{item._id}}/">View Item</a>
+        <button ng-click="addToCart(item);">Add to Cart</button>
+        </div>
+    </div>
+</div>
