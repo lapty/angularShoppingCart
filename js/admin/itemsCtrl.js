@@ -12,11 +12,31 @@ angular.module("httpService")
         });
 
         $scope.addItem = function (item) {
-            itemsSvc.addItem(item).then(function () {
+             itemsSvc.addItem({
+                title:item.title,
+                image:item.image,
+                price:item.price,
+                content:item.content,
+                reviews: []
+              }).then(function () {
                 $location.path("/admin");
-            });
+              });
+            };
 
+        $scope.addReview = function(review) {
+
+            itemsSvc.getItem($routeParams.id).success(function(item) {
+
+            $scope.reviews.push({
+
+              reviewAuthor:review.author,
+              reviewContent:review.content,
+              reviewDate:new Date(),
+
+                });
+            });
         };
+
 
         $scope.editItem = function (item) {
             itemsSvc.updateItem(item).then(function () {
@@ -37,14 +57,14 @@ angular.module("httpService")
                 title:item.title,
                 image:item.image,
                 price:item.price,
-                content:item.content
+                quantity:item.quantity,
             }
 
             itemsSvc.addToCart(newItem).then(function () {
                 $location.path("/store");
             });
-        }
+        };
 
 
 
-    });
+});

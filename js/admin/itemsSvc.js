@@ -42,6 +42,7 @@ angular.module("httpService")
             });
         };
 
+
         return {
             getItems: getItems,
             getItem: getItem,

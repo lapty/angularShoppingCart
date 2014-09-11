@@ -6,8 +6,19 @@
     <p>{{singleItem.price | currency}}</p>
     <p>{{singleItem.content}}</p>
     <button ng-click="addToCart();">Add to Cart</button>
-</article>
 
-    <h2> Reviews: </h2>
-    <button ng-click"addReview();">Add a review</button>
-    <p></p>
+Add a review:
+
+    <form ng-submit="addReview(review)">
+      <h3><input type="text" placeholder="Name" ng-model="review.author"></h3>
+      <p><textarea name="" id="" cols="30" rows="10" placeholder="Enter Your Review" ng-model="review.content"></textarea></p>
+      <button ng-click="rate = !rate">Submit Review</button>
+    </form>
+
+    <div ng-repeat="review in singleItem.reviews">
+      <p>Review: {{review.reviewContent}}</p>
+      <p>Reviewed By: {{review.reviewAuthor}}</p>
+      <p>Reviewed On: {{review.reviewDate | date : format : timezone}}</p>
+    </div>
+
+</article>

@@ -10,7 +10,7 @@ angular.module("directives", [])
           price: "@",
           content: "@"
         },
-        templateUrl: "views/inventory.html",
+        templateUrl: "views/directives/inventory.html",
         link: function (scope, element, attrs) {
         }
 
@@ -27,7 +27,7 @@ angular.module("directives", [])
           price: "@",
           quantity: "@"
         },
-        templateUrl: "views/shoppingcart.html",
+        templateUrl: "views/directives/shoppingcart.html",
         link: function (scope, element, attrs) {
         }
       };

@@ -4,19 +4,18 @@
 <article ng-repeat="cart in carts">
     <div class="cartWrap">
 
-        <shoppingcart title="{{cart.title}}" image="{{cart.image}}">
-        </shoppingcart>
+        <shoppingcart title="{{cart.title}}" image="{{cart.image}}"></shoppingcart>
 
-        Qty: <select name="cartQty" ng-model="cart.quantity">
-            <option value="1" selected="selected">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-        </select>
-
-        Subtotal: {{(cart.price * cart.quantity) | currency}}
+    <p> Qty: <select value="{{cart.quantity}}" ng-model="cart.quantity">
+        <option value="1" selected="selected">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select> </p
+    
+        <p>Subtotal: {{(cart.price * cart.quantity) | currency}}</p>
         <button ng-click="deleteCart(cart._id)">Remove</button>
 
     </div>
