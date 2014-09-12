@@ -6,9 +6,8 @@ angular.module("userService")
         cartSvc.getCarts().then(function (carts) {
            $scope.carts = carts.data;
                 for (var i = 0; i < carts.data.length; i++) {
-                    $scope.checkoutTotal += (carts.data[i].price * carts.data[i].quantity);
+                    $scope.cartTotal += (carts.data[i].price * carts.data[i].quantity);
            };
-
         });
 
         cartSvc.getCart($routeParams.id).then(function (response) {
@@ -16,26 +15,26 @@ angular.module("userService")
 
         });
 
-        $scope.addCart = function (cart) {
-            cartSvc.addCart(cart).then(function () {
-                $location.path("/store");
-            });
-
-        };
-
-        $scope.editCart = function (cart) {
+        $scope.updateCart = function (cart) {
             cartSvc.updateCart(cart).then(function () {
-                $location.path("/store");
+                $location.path("/store/cart");
             });
         };
+
 
         $scope.deleteCart = function (id) {
-            cartSvc.deleteCart(id),
-            cartSvc.$log("cart:deleted");
-            cartSvc.$broadcast("cart:deleted")
+            cartSvc.deleteCart(id)
         };
 
+/////event listeners
+
         $rootScope.$on("cart:deleted",  function() {
+            cartSvc.getCarts().then(function (carts) {
+            $scope.carts = carts.data;
+        });
+      });
+
+        $rootScope.$on("cart:updated",  function() {
             cartSvc.getCarts().then(function (carts) {
             $scope.carts = carts.data;
         });
