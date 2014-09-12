@@ -29,15 +29,17 @@ angular.module("userService")
 
 
         var cartTotal = function(){
-          getCarts().success(function(carts){
+
             var total = 0;
+
+         getCarts().success(function(carts){
             for (var i = 0; i < carts.length; i++) {
               total += (carts[i].price * carts[i].quantity)
             }
-            return total,
             console.log(total);
 
           });
+          return total
         };
 
         return {

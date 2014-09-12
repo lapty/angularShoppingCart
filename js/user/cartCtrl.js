@@ -1,5 +1,5 @@
 angular.module("userService")
-    .controller("cartCtrl", function ($scope, $rootScope, $location, $routeParams, cartSvc) {
+    .controller("cartCtrl", function ($scope, $rootScope, $location, $route, $routeParams, cartSvc) {
 
         $scope.cartTotal = 0;
 
@@ -37,6 +37,7 @@ angular.module("userService")
         $rootScope.$on("cart:updated",  function() {
             cartSvc.getCarts().then(function (carts) {
             $scope.carts = carts.data;
+            $route.reload();
         });
       });
 
